@@ -1,6 +1,4 @@
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /*
@@ -18,10 +16,10 @@ public class Login extends javax.swing.JFrame {
      * Creates new form login
      */
     public Login() {
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension dim = toolkit.getScreenSize();
-        setSize(dim.width, dim.height);//This will set the frame acording to the screen size 
-        //of the monitor we run
+//        Toolkit toolkit = Toolkit.getDefaultToolkit();
+//        Dimension dim = toolkit.getScreenSize();
+//        setSize(dim.width, dim.height);//This will set the frame acording to the screen size 
+//        //of the monitor we run
         initComponents();
     }
 
@@ -47,6 +45,8 @@ public class Login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1366, 768));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
