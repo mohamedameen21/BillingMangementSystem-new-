@@ -127,6 +127,10 @@ public class Login extends javax.swing.JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
+        if(jCheckBox1.isSelected())
+            jPasswordField1.setEchoChar((char)0);
+        else
+            jPasswordField1.setEchoChar('*');
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
