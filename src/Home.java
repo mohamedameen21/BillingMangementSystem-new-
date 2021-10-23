@@ -338,7 +338,7 @@ public int z = 0;
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-        int a = JOptionPane.showConfirmDialog(null,"Do you want to Logout the Session","Select",JOptionPane.YES_NO_OPTION);
+        int a = JOptionPane.showConfirmDialog(null,"Do you want to Close the Application","Select",JOptionPane.YES_NO_OPTION);
         if(a==0){
             System.exit(0);
         }
