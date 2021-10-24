@@ -1,5 +1,9 @@
 
+import Project.ConnectionProvider;
 import java.awt.Color;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 
 
 /*
@@ -91,6 +95,11 @@ public class NewBuyer extends javax.swing.JFrame {
                 jTextField1FocusLost(evt);
             }
         });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBox1.setForeground(java.awt.Color.darkGray);
@@ -112,6 +121,11 @@ public class NewBuyer extends javax.swing.JFrame {
                 jTextField5FocusLost(evt);
             }
         });
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
 
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(153, 153, 153));
@@ -122,6 +136,11 @@ public class NewBuyer extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTextField7FocusLost(evt);
+            }
+        });
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
             }
         });
 
@@ -291,6 +310,22 @@ public class NewBuyer extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String name = jTextField1.getText();
+        String contactNo = jTextField5.getText();
+        String email = jTextField7.getText();
+        String address = jTextField8.getText();
+        String gender = (String)jComboBox1.getSelectedItem();
+        
+        try{
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            st.executeUpdate("insert into buyer values('"+name+"','"+contactNo+"','"+email+"','"+address+"','"+gender+"')");
+            JOptionPane.showMessageDialog(null,"Successfully Updated");
+            setVisible(false);
+            new NewBuyer().setVisible(true);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Mobile Number is already exists");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -361,6 +396,18 @@ public class NewBuyer extends javax.swing.JFrame {
             jTextField8.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_jTextField8FocusLost
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
 
     /**
      * @param args the command line arguments
