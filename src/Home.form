@@ -135,7 +135,7 @@
     <Component class="javax.swing.JButton" name="jButton6">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/add-products.png"/>
+          <Image iconType="3" name="/AS_NewProduct.png"/>
         </Property>
       </Properties>
       <Events>
@@ -151,7 +151,7 @@
     <Component class="javax.swing.JButton" name="jButton7">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/edit-64.png"/>
+          <Image iconType="3" name="/AS_UpdateProduct.png"/>
         </Property>
       </Properties>
       <Events>
@@ -167,7 +167,7 @@
     <Component class="javax.swing.JButton" name="jButton8">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/product dtails 60.png"/>
+          <Image iconType="3" name="/AS_ProductDetails.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
@@ -184,7 +184,7 @@
     <Component class="javax.swing.JButton" name="jButton9">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/delete product.png"/>
+          <Image iconType="3" name="/AS_DeleteProduct-1.png"/>
         </Property>
       </Properties>
       <Events>
@@ -200,7 +200,7 @@
     <Component class="javax.swing.JButton" name="jButton10">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/billing-machine-60.png"/>
+          <Image iconType="3" name="/AS_Billing.png"/>
         </Property>
       </Properties>
       <Events>
@@ -216,7 +216,7 @@
     <Component class="javax.swing.JButton" name="jButton11">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/logout-60.png"/>
+          <Image iconType="3" name="/AS_Logout.png"/>
         </Property>
       </Properties>
       <Events>
@@ -232,7 +232,7 @@
     <Component class="javax.swing.JButton" name="jButton12">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/close 60.png"/>
+          <Image iconType="3" name="/AS_Close.png"/>
         </Property>
       </Properties>
       <Events>
@@ -384,7 +384,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
+    <Component class="javax.swing.JLabel" name="jLabel13">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Home Page Background.png"/>
@@ -392,7 +392,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="340" y="160" width="-1" height="610"/>
+          <AbsoluteConstraints x="160" y="140" width="-1" height="640"/>
         </Constraint>
       </Constraints>
     </Component>

@@ -79,7 +79,7 @@ public int z = 0;
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -153,7 +153,7 @@ public int z = 0;
         });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add-products.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_NewProduct.png"))); // NOI18N
         jButton6.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton6ComponentShown(evt);
@@ -166,7 +166,7 @@ public int z = 0;
         });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edit-64.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_UpdateProduct.png"))); // NOI18N
         jButton7.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton7ComponentShown(evt);
@@ -179,7 +179,7 @@ public int z = 0;
         });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 113, -1));
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/product dtails 60.png"))); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_ProductDetails.png"))); // NOI18N
         jButton8.setToolTipText("");
         jButton8.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -193,7 +193,7 @@ public int z = 0;
         });
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 11, 100, 73));
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete product.png"))); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_DeleteProduct-1.png"))); // NOI18N
         jButton9.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton9ComponentShown(evt);
@@ -206,7 +206,7 @@ public int z = 0;
         });
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(938, 11, 106, 69));
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/billing-machine-60.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_Billing.png"))); // NOI18N
         jButton10.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton10ComponentShown(evt);
@@ -219,7 +219,7 @@ public int z = 0;
         });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 10, -1, -1));
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logout-60.png"))); // NOI18N
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_Logout.png"))); // NOI18N
         jButton11.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton11ComponentShown(evt);
@@ -232,7 +232,7 @@ public int z = 0;
         });
         getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 10, -1, -1));
 
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close 60.png"))); // NOI18N
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_Close.png"))); // NOI18N
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -290,8 +290,8 @@ public int z = 0;
         jLabel11.setText("Close");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 90, 93, 22));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home Page Background.png"))); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, 610));
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home Page Background.png"))); // NOI18N
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, -1, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -562,7 +562,7 @@ public int z = 0;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
