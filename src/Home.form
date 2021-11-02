@@ -58,7 +58,7 @@
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/add-user-male-60.png"/>
+          <Image iconType="3" name="/AS_NewBuyer.png"/>
         </Property>
       </Properties>
       <Events>
@@ -74,7 +74,7 @@
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/update user.png"/>
+          <Image iconType="3" name="/AS_UpdateBuyer.png"/>
         </Property>
       </Properties>
       <Events>
@@ -90,7 +90,7 @@
     <Component class="javax.swing.JButton" name="jButton4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/details.png"/>
+          <Image iconType="3" name="/AS_BuyerDetails.png"/>
         </Property>
       </Properties>
       <Events>
@@ -120,7 +120,7 @@
     <Component class="javax.swing.JButton" name="jButton5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/delete-user.png"/>
+          <Image iconType="3" name="/AS_DeleteBuyer.png"/>
         </Property>
       </Properties>
       <Events>
@@ -392,7 +392,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="360" y="120" width="-1" height="-1"/>
+          <AbsoluteConstraints x="340" y="160" width="-1" height="610"/>
         </Constraint>
       </Constraints>
     </Component>

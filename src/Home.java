@@ -101,7 +101,7 @@ public int z = 0;
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add-user-male-60.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_NewBuyer.png"))); // NOI18N
         jButton2.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton2ComponentShown(evt);
@@ -114,7 +114,7 @@ public int z = 0;
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 106, 73));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/update user.png"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_UpdateBuyer.png"))); // NOI18N
         jButton3.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton3ComponentShown(evt);
@@ -127,7 +127,7 @@ public int z = 0;
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/details.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_BuyerDetails.png"))); // NOI18N
         jButton4.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton4ComponentShown(evt);
@@ -145,7 +145,7 @@ public int z = 0;
         jLabel1.setText("New Buyer");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 93, 22));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/delete-user.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_DeleteBuyer.png"))); // NOI18N
         jButton5.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 jButton5ComponentShown(evt);
@@ -291,7 +291,7 @@ public int z = 0;
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 90, 93, 22));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home Page Background.png"))); // NOI18N
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
