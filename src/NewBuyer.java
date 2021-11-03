@@ -61,7 +61,7 @@ public class NewBuyer extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("New Buyer");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add-user-male-60.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_NewBuyer.png"))); // NOI18N
 
         jSeparator1.setForeground(new java.awt.Color(60, 90, 100));
 
