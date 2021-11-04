@@ -52,7 +52,6 @@ public class NewBuyer extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(380, 160));
         setMaximumSize(new java.awt.Dimension(600, 450));
 
