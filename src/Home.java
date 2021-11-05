@@ -151,6 +151,11 @@ public int z = 0;
                 jButton5ComponentShown(evt);
             }
         });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AS_NewProduct.png"))); // NOI18N
@@ -510,6 +515,11 @@ public int z = 0;
                 
             }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        new DeleteBuyer().setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
