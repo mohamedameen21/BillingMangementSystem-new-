@@ -354,6 +354,7 @@ public class NewProduct extends javax.swing.JFrame {
         String rate = jTextField2.getText();
         String description = jTextField3.getText();
         String activate = (String) jComboBox1.getSelectedItem();
+        activate = activate.toUpperCase();
         try {
             Connection con = ConnectionProvider.getCon();
             Statement st = con.createStatement();
