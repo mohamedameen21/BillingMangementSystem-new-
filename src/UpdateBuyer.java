@@ -162,7 +162,7 @@ public class UpdateBuyer extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(java.awt.Color.darkGray);
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Afrin_Save_Icon 24.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/updated.png"))); // NOI18N
         jButton2.setText(" Update");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
