@@ -1,9 +1,14 @@
+
+import Project.ConnectionProvider;
+import java.awt.Color;
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author moham
@@ -74,14 +79,30 @@ public class NewProduct extends javax.swing.JFrame {
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(153, 153, 153));
         jTextField1.setText("Enter Product Name");
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(java.awt.Color.darkGray);
-        jLabel6.setText("Price ");
+        jLabel6.setText("Rate");
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField2.setText("Enter Price");
+        jTextField2.setText("Enter Rate");
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField2FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(java.awt.Color.darkGray);
@@ -90,6 +111,14 @@ public class NewProduct extends javax.swing.JFrame {
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(153, 153, 153));
         jTextField3.setText("Enter Description");
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField3FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(java.awt.Color.darkGray);
@@ -108,16 +137,31 @@ public class NewProduct extends javax.swing.JFrame {
         jButton1.setForeground(java.awt.Color.darkGray);
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Afrin_Save_Icon 24.png"))); // NOI18N
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(java.awt.Color.darkGray);
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/reset.png"))); // NOI18N
         jButton2.setText("Reset");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setForeground(java.awt.Color.darkGray);
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Afrin_Close_Icon.png"))); // NOI18N
         jButton3.setText("Close");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,7 +201,7 @@ public class NewProduct extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -223,12 +267,104 @@ public class NewProduct extends javax.swing.JFrame {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select max(pId) from product");
+            if (rs.next()) {
+                int id = rs.getInt(1);
+                id = id + 1;
+                String str = String.valueOf(id);
+                jLabel4.setText(str);
+            } else {
+                jLabel4.setText("1");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
     }//GEN-LAST:event_formComponentShown
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        // TODO add your handling code here:
+        if (jTextField1.getText().equals("Enter Product Name")) {
+            jTextField1.setText("");
+            jTextField1.setForeground(new Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+        // TODO add your handling code here:
+        if (jTextField1.getText().equals("")) {
+            jTextField1.setText("Enter Product Name");
+            jTextField1.setForeground(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_jTextField1FocusLost
+
+    private void jTextField2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusGained
+        // TODO add your handling code here:
+        if (jTextField2.getText().equals("Enter Rate")) {
+            jTextField2.setText("");
+            jTextField2.setForeground(new Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_jTextField2FocusGained
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        // TODO add your handling code here:
+        if (jTextField2.getText().equals("")) {
+            jTextField2.setText("Enter Rate");
+            jTextField2.setForeground(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
+        // TODO add your handling code here:
+        if (jTextField3.getText().equals("Enter Description")) {
+            jTextField3.setText("");
+            jTextField3.setForeground(new Color(0, 0, 0));
+        }
+    }//GEN-LAST:event_jTextField3FocusGained
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        // TODO add your handling code here:
+        if (jTextField3.getText().equals("")) {
+            jTextField3.setText("Enter Description");
+            jTextField3.setForeground(new Color(153, 153, 153));
+        }
+    }//GEN-LAST:event_jTextField3FocusLost
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new NewProduct().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String pId = jLabel4.getText();
+        String pName = jTextField1.getText();
+        String rate = jTextField2.getText();
+        String description = jTextField3.getText();
+        String activate = (String) jComboBox1.getSelectedItem();
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            st.executeUpdate("insert into product values('" + pId + "','" + pName + "','" + rate + "','" + description + "','" + activate + "') ");
+            JOptionPane.showMessageDialog(null, "Successfully Updated");
+            setVisible(false);
+            new NewProduct().setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,7 +377,7 @@ public class NewProduct extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
