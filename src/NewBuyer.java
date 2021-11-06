@@ -1,6 +1,7 @@
 
 import Project.ConnectionProvider;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
@@ -316,6 +317,8 @@ public class NewBuyer extends javax.swing.JFrame {
         String address = jTextField8.getText();
         String gender = (String)jComboBox1.getSelectedItem();
         
+        
+        
         try{
             Connection con = ConnectionProvider.getCon();
             Statement st = con.createStatement();
@@ -323,8 +326,13 @@ public class NewBuyer extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Successfully Updated");
             setVisible(false);
             new NewBuyer().setVisible(true);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Mobile Number is already exists");
+        }catch(HeadlessException | SQLException e){
+            if(contactNo.length() > 10){
+            JOptionPane.showMessageDialog(null,"Mobile Number exceeds the Standards");
+            jButton2.doClick();
+        }else{
+                JOptionPane.showMessageDialog(null,"Mobile Number is already exists");
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
