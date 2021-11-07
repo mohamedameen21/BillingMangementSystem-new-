@@ -3,6 +3,7 @@ import Project.ConnectionProvider;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 
@@ -53,8 +54,18 @@ public class NewBuyer extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("New Buyer");
+        setBackground(java.awt.Color.orange);
         setLocation(new java.awt.Point(380, 160));
         setMaximumSize(new java.awt.Dimension(600, 450));
+        setResizable(false);
+        setType(java.awt.Window.Type.POPUP);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowIconified(java.awt.event.WindowEvent evt) {
+                formWindowIconified(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(149, 83, 160));
@@ -416,6 +427,11 @@ public class NewBuyer extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void formWindowIconified(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowIconified
+        // TODO add your handling code here:
+        setState(JFrame.NORMAL);
+    }//GEN-LAST:event_formWindowIconified
 
     /**
      * @param args the command line arguments

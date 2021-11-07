@@ -1,20 +1,55 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+import Project.ConnectionProvider;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileOutputStream;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
  * @author moham
  */
 public class Billing extends javax.swing.JFrame {
-
+    public int finalTotal =0;
     /**
      * Creates new form Billing
      */
     public Billing() {
         initComponents();
+        SimpleDateFormat dFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date();
+        jLabel4.setText(dFormat.format(date));
+
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+//        LocalDateTime now = LocalDateTime.now();
+//        jLabel6.setText(dtf.format(now));
+
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while (true) {
+                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+                        LocalDateTime now = LocalDateTime.now();
+                        jLabel6.setText(dtf.format(now));
+                        Thread.sleep(1000);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        t.start();
     }
 
     /**
@@ -118,6 +153,11 @@ public class Billing extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField2KeyPressed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(java.awt.Color.darkGray);
@@ -204,19 +244,15 @@ public class Billing extends javax.swing.JFrame {
         jButton1.setForeground(java.awt.Color.darkGray);
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
         jButton1.setText(" Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Name", "Description", "Rate", "Quantity", "Totall"
@@ -248,7 +284,7 @@ public class Billing extends javax.swing.JFrame {
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel20.setForeground(java.awt.Color.darkGray);
-        jLabel20.setText("Pain Amount");
+        jLabel20.setText("Paid Amount");
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel21.setForeground(java.awt.Color.darkGray);
@@ -264,6 +300,11 @@ public class Billing extends javax.swing.JFrame {
 
         jTextField11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField11.setForeground(java.awt.Color.darkGray);
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
 
         jTextField12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField12.setForeground(java.awt.Color.darkGray);
@@ -485,14 +526,70 @@ public class Billing extends javax.swing.JFrame {
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
+        String contactNo = jTextField2.getText();
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from buyer where contactNo like '" + contactNo + "%' ");
+            if (rs.next()) {
+                jTextField1.setText(rs.getString(1));
+                jTextField2.setText(rs.getString(2));
+                jTextField3.setText(rs.getString(3));
+                jTextField4.setText(rs.getString(4));
+            } else {
+                jTextField1.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
+        String name = jTextField1.getText();
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from buyer where name like '" + name + "%' ");
+            if (rs.next()) {
+                jTextField1.setText(rs.getString(1));
+                jTextField2.setText(rs.getString(2));
+                jTextField3.setText(rs.getString(3));
+                jTextField4.setText(rs.getString(4));
+            } else {
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
+        String pId = jTextField5.getText();
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from product where pId='" + pId + "' ");
+            if (rs.next()) {
+                jTextField6.setText(rs.getString(2));
+                jTextField7.setText(rs.getString(3));
+                jTextField8.setText("1");
+                jTextField9.setText(rs.getString(4));
+            } else {
+                jTextField6.setText("");
+                jTextField7.setText("");
+                jTextField8.setText("");
+                jTextField9.setText("");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -517,15 +614,100 @@ public class Billing extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        String name = jTextField1.getText();
+        String contactNo = jTextField2.getText();
+        String email = jTextField3.getText();
+        String address = jTextField4.getText();
+        String path = "C:\\Users\\moham\\OneDrive\\Documents\\Bills\\";
+        Document doc = new Document();
+        try{
+            PdfWriter.getInstance(doc,new FileOutputStream(path+name+" "+jLabel4.getText()+".pdf"));
+            doc.open();
+            Paragraph paragraph1 = new Paragraph("                 "
+                    + "           Ameen (Billing Management System)\n  "
+                    + "                                     Contact Number: 9943114363\n");
+            doc.add(paragraph1);
+            Paragraph paragraph2 = new Paragraph("Date & Time: "+jLabel4.getText()+" "+jLabel6.getText()+
+                    "\nBuyer Details: \nName:"+name+"\n"
+                            + "Contact Number:"+contactNo+"\n"
+                                    + "Email:"+email+"\n"
+                                            + "Address:"+address+"\n"
+                                                    + "\n ");
+            doc.add(paragraph2);
+            PdfPTable tb1 = new PdfPTable(5);
+            tb1.addCell("Name");
+            tb1.addCell("Description");
+            tb1.addCell("Rate");
+            tb1.addCell("Quantity");
+            tb1.addCell("Sub Total");
+            
+            for(int i=0;i<jTable1.getRowCount();i++){
+                String n = jTable1.getValueAt(i,0).toString();
+                String d = jTable1.getValueAt(i,1).toString();
+                String r = jTable1.getValueAt(i,2).toString();
+                String q = jTable1.getValueAt(i,3).toString();
+                String s = jTable1.getValueAt(i,4).toString();
+                tb1.addCell(n);
+                tb1.addCell(d);
+                tb1.addCell(r);
+                tb1.addCell(q);
+                tb1.addCell(s);
+            }
+            doc.add(tb1);
+            Paragraph paragraph3 = new Paragraph("\nTotal "+jTextField10.getText()+"\n"
+                    + "Paid Amount "+jTextField11.getText()+"\n"
+                            + "Returned Amount "+jTextField12.getText()+"\n"
+                                    + "\nThank You for visiting ! Please Come Again\n"
+                                    + "-Ameen");
+            
+           doc.add(paragraph3);
+           
+           JOptionPane.showMessageDialog(null,"Bill Generated Successfully");
+           setVisible(false);
+           new Billing().setVisible(true);
+           
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        doc.close();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
+        new Billing().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int price = Integer.parseInt(jTextField7.getText());
+        int quantity = Integer.parseInt(jTextField8.getText());
+        int total = price*quantity;
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        model.addRow(new Object[]{jTextField6.getText(),jTextField9.getText(),price,quantity,total});
+        finalTotal = finalTotal + total;
+        String finalTotal1 = String.valueOf(finalTotal);
+        jTextField10.setText(finalTotal1);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+        String paidAmount = jTextField11.getText();
+        int z = Integer.parseInt(paidAmount);
+        int remaining = z-finalTotal;
+        String sRemaining = String.valueOf(remaining);
+        jTextField12.setText(sRemaining);
+        jTextField12.setEditable(false);
+    }//GEN-LAST:event_jTextField11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -538,7 +720,7 @@ public class Billing extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -561,6 +743,7 @@ public class Billing extends javax.swing.JFrame {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
